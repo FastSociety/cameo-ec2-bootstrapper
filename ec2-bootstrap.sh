@@ -21,10 +21,8 @@ dpkg -i puppetlabs-release-oneiric.deb
 # Update APT
 apt-get update
 
-# Install some packages
-apt-get install -y puppet python-setuptools
-easy_install pip
-pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+# Install Puppet
+apt-get install -y puppet
 
 # Install basic Puppet Agent puppet.conf
 cat <<EOF > /etc/puppet/puppet.conf
