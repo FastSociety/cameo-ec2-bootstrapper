@@ -21,6 +21,9 @@ dpkg -i puppetlabs-release-oneiric.deb
 # Update APT
 apt-get update
 
+apt-get install -y python-setuptools
+easy_install pip
+
 # Install Puppet
 apt-get install -y puppet
 
