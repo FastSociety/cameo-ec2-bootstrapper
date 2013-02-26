@@ -31,6 +31,7 @@ apt-get install -y puppet
 cat <<EOF > /etc/puppet/puppet.conf
 [main]
 ssldir=\$vardir/ssl
+rundir=/var/run/puppet
 report=true
 environment=${ENVIRONMENT}
 certname=${NODE_NAME}.${ENVIRONMENT}.$(facter ec2_instance_id).$(facter ec2_public_hostname)
