@@ -33,6 +33,7 @@ cat <<EOF > /etc/puppet/puppet.conf
 ssldir=\$vardir/ssl
 rundir=/var/run/puppet
 report=true
+runinterval=180
 environment=${ENVIRONMENT}
 certname=${NODE_NAME}.${ENVIRONMENT}.$(facter ec2_instance_id).$(facter ec2_public_hostname)
 server=${PUPPETMASTER}
