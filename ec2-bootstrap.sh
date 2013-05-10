@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-## Generic bootrap script for Ubuntu-11.10-based EC2 instances
+## Generic bootrap script for Ubuntu-based EC2 instances
 ## This script should be run via EC2 UserData, but works just as well in a VM.
 ## It will install the Puppetlabs APT sourcelist, then install and configure a
 ## basic Puppet Agent.
@@ -15,8 +15,9 @@ PUPPETMASTER=$3
 export DEBIAN_FRONTEND=noninteractive
 
 # Install Puppetlabs APT sourcelist package
-wget http://apt.puppetlabs.com/puppetlabs-release-oneiric.deb
-dpkg -i puppetlabs-release-oneiric.deb
+PUPPETLABS_RELEASE_DEB=puppetlabs-release-$(lsb_release -sc).deb
+wget http://apt.puppetlabs.com/${PUPPETLABS_RELEASE_DEB}
+dpkg -i ${PUPPETLABS_RELEASE_DEB}
 
 # Update APT
 apt-get update
