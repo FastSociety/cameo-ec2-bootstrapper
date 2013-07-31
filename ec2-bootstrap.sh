@@ -15,9 +15,9 @@ PUPPETMASTER=$3
 export DEBIAN_FRONTEND=noninteractive
 
 # Install Puppetlabs APT sourcelist package
-PUPPETLABS_RELEASE_DEB=puppetlabs-release-$(lsb_release -sc).deb
-wget http://apt.puppetlabs.com/${PUPPETLABS_RELEASE_DEB}
-dpkg -i ${PUPPETLABS_RELEASE_DEB}
+#PUPPETLABS_RELEASE_DEB=puppetlabs-release-$(lsb_release -sc).deb
+#wget http://apt.puppetlabs.com/${PUPPETLABS_RELEASE_DEB}
+#dpkg -i ${PUPPETLABS_RELEASE_DEB}
 
 # Update APT
 apt-get update
