@@ -22,8 +22,7 @@ dpkg -i ${PUPPETLABS_RELEASE_DEB}
 # Update APT
 apt-get update
 
-apt-get install -y python-setuptools
-easy_install pip
+apt-get install -y python-setuptools python-pip
 
 # Install Puppet
 apt-get install -y puppet
