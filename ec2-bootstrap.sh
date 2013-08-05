@@ -27,6 +27,11 @@ apt-get install -y python-setuptools python-pip
 # Install Puppet
 apt-get install -y puppet
 
+#Ensure vital SG Groups are set
+FACTER_EC2_SGS=$(facter ec2_security_groups)
+echo ${FACTER_EC2_SGS} | grep sg_${ENVIRONMENT}_puppet || nc -w0 -u syslog.logs.inet.cameo.tv 514 <<< "<131>`date --rfc-3339=ns` `hostname` Ec2_Bootstrap: Failed to detect SG for Puppetmaster!"
+echo ${FACTER_EC2_SGS} | grep sg_${ENVIRONMENT}_logs || nc -w0 -u syslog.logs.inet.cameo.tv 514 <<< "<131>`date --rfc-3339=ns` `hostname` Ec2_Bootstrap: Failed to detect SG for Logserver!"
+
 # Install basic Puppet Agent puppet.conf
 cat <<EOF > /etc/puppet/puppet.conf
 [main]
